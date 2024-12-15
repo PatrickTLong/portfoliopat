@@ -6,7 +6,7 @@ export default function AddForm() {
   const [data, setData] = useState({ title: "", summary: "" });
   const [success, setsuccess] = useState(false);
   const [fail, setfail] = useState(false);
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   function Submit(e) {
     const Filled = data["title"] !== "" && data["summary"] !== ""
@@ -25,7 +25,7 @@ export default function AddForm() {
     setTimeout(() => {
       setsuccess(false);
     }, 3000);
-    axios.post("https://domain.up.railway.app/databasestore", data);
+    axios.post(`${backendUrl}/databasestore`, data);
     }
     setData({ title: "", summary: "" })
     

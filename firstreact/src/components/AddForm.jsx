@@ -16,7 +16,7 @@ export default function AddForm() {
       setTimeout(() => {
         setfail(false);
       }, 10000);
-      setData({ title: "", summary: "" })
+      
     }
     if (Filled)  {
       e.preventDefault();
@@ -25,8 +25,9 @@ export default function AddForm() {
     setTimeout(() => {
       setsuccess(false);
     }, 3000);
-    axios.post(`${process.env.REACT_APP_BACKEND_URL}/databasestore`, data)
+    axios.post("http://localhost:5000/databasestore", data);
     }
+    setData({ title: "", summary: "" })
     
   }
   

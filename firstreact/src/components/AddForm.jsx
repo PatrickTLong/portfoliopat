@@ -25,7 +25,7 @@ export default function AddForm() {
     setTimeout(() => {
       setsuccess(false);
     }, 3000);
-    axios.post("http://localhost:5000/databasestore", data);
+    axios.post("https://domain.up.railway.app/databasestore", data);
     }
     setData({ title: "", summary: "" })
     

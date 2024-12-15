@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background-color: rgb(12, 12, 12);  /* Dark background */
+    background-image: 
+    radial-gradient(circle, rgba(29, 28, 28, 0.768) 0.05rem, transparent 0.1rem);
+    background-size: 4rem 4rem; /* Increase grid size for more spacing */
+}
+
+@keyframes bounce {
+    50% {
+        transform: scale(1.2);
+    }
+}
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+#bounce1 {
+    animation: bounce 1.5s infinite;
+    
+}
+#bounce2 {
+    animation: bounce 1.5s ease infinite;
+    animation-delay: 0.1s;
+}
+#bounce3 {
+    animation: bounce 1.5s ease infinite;
+    animation-delay: 0.2s;
+}
+#bounce4 {
+    animation: bounce 1.5s ease infinite;
+    animation-delay: 0.3s;
+    
+}
+#bounce5 {
+    animation: bounce 1.5s ease infinite;
+    animation-delay: 0.4s;
+}
+#bounce6 {
+    animation: bounce 1.5s ease infinite;
+    animation-delay: 0.5s;
+}

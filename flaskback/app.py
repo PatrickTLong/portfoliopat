@@ -2,19 +2,19 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
+import os
 import sqlalchemy as sa
 import sqlalchemy.orm as so
 
 app = Flask(__name__)
-import os
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "sqlite:///users.db")
 
-
+# Use environment variable for MySQL URL, defaulting to MySQL connection string
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "mysql://user:password@localhost:3306/mydatabase")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 CORS(app)
 migrate = Migrate(app, db)
-
 
 class Post(db.Model):
     id: so.Mapped[int] = so.mapped_column(sa.Integer, primary_key=True)
@@ -23,7 +23,6 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"({self.id}, {self.title}/ {self.summary})"
-
 
 @app.route("/databasestore", methods=["POST"])
 def databasestore():
